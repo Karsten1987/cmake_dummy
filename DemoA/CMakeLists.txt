@@ -3,7 +3,13 @@ include_directories(${PROJECT_SOURCE_DIR}/include/LibA)
 link_directories(${PROJECT_BINARY_DIR}/LibA)
 
 
-FIND_PACKAGE(Boost COMPONENTS thread REQUIRED )
+option(OLD "Old version flag" ON)
+
+if (OLD)
+  add_definitions(-DOLD=1)
+endif()
+
+FIND_PACKAGE(Boost REQUIRED COMPONENTS thread system )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
 

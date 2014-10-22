@@ -25,12 +25,17 @@ void scopeFunction (){
 
 int main()
 {
-	cout << "DemoA is launched";
+
+#ifdef OLD
+  std::cerr << "old variable is set " << std::endl;
+#else
+  std::cerr << "new version is set " << std::endl;
+#endif
 
     std::vector<int> karsten(2);
     karsten.push_back(0);
     karsten.push_back(1);
-
+    
     cout << karsten[0] <<std::endl;
     cout << PrintTwice(360.1, 3) << endl;
     show<double>(1234);
